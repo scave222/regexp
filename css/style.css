@@ -1,0 +1,21 @@
+/* .bgcolor{background-color:rgb(224, 221, 221);border-radius: 5%;} */
+.inputwidth{width:100%; text-align: left; }
+.submit{text-align: center;}
+button{padding:4px;background-color: gray;margin-bottom: 10px;width:50%};
+img{height:150px;width:90%;}
+.bg-img{
+    /* background-image: url("apply.jpg"); */
+    
+    min-height: 220px;
+    min-width: 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+  }
+.clas{background-image: url("../apply.jpg");
+    min-height: 320px;
+    min-width: 0px; 
+    background-repeat: no-repeat;
+    background-size: cover;}
+body{color:navy}
+.g{background-image: url("../class.jpg");}
