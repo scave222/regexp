@@ -1,6 +1,6 @@
 const firstName = document.querySelector("#firstName");
 const lastName = document.querySelector("#lastName");
-const DOB = document.querySelector("#DOB");
+const doB = document.querySelector("#doB");
 const email = document.querySelector("#email");
 const phone = document.querySelector("#phone");
 const password = document.querySelector("#password");
@@ -18,8 +18,9 @@ email.addEventListener("blur", emailed);
 firstName.addEventListener("blur", nameFirst);
 lastName.addEventListener("blur", nameLast);
 phone.addEventListener("blur",phoneNum);
-DOB.addEventListener("blur",date);
+doB.addEventListener("blur",date);
 password.addEventListener("blur",pass);
+confirmPassword.addEventListener("blur",cPass);
 
 function emailed(){
     let emailAd = email.value;
@@ -63,7 +64,7 @@ function nameLast(){
 
 function phoneNum(){
     let phoneNu = phone.value;
-    let comparePhone = new RegExp('^\+234[789]{1}[01]{1}[0-9]{8}$',"g");
+    let comparePhone = /^(\+234|0)[789]{1}[01]{1}[0-9]{8}$/g;
 
     if (comparePhone.test(phoneNu)){
         displayPhone.innerHTML = "Good!";
@@ -75,8 +76,8 @@ function phoneNum(){
 }
 
 function date(){
-    let dat = DOB.value;
-    let compareDate = new RegExp('^([0]?[1-9]|[1|2][0-9]|[3][0|1])[./]([0]?[1-9]|[1][0-2])[./]([0-9]{4}|[0-9]{2})$',"g");
+    let dat = doB.value;
+    let compareDate = /^([0]?[1-9]|[1|2][0-9]|[3][0|1])[./]([0]?[1-9]|[1][0-2])[./]([0-9]{4}|[0-9]{2})$/g;
 
     if (compareDate.test(dat)){
         displayDob.innerHTML = "Good!";
@@ -89,7 +90,7 @@ function date(){
 
 function pass(){
     let passed = password.value;
-    let pword = new RegExp('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$',"g");
+    let pword = /^[\w@-]{6,12}$/g;
 
     if (pword.test(passed)){
         displayPassword.innerHTML = "Good!";
@@ -99,6 +100,19 @@ function pass(){
         displayPassword.style.color = "red";
     }
 }
+
+function cPass(){
+    let cPassed = confirmPassword.value;
+    if (cPassed === password.value){
+        displayCPassword.innerHTML = "Good!";
+        displayCPassword.style.color = "green";
+    }else {
+        displayCPassword.innerHTML = "Oops! incorrect input";
+        displayCPassword.style.color = "red";
+    }
+}
+
+
 // function compare(){
 //     let phoneinput = phone.value;
 //     // let fName = firstName.value;
